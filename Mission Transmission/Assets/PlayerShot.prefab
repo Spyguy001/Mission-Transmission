@@ -22,8 +22,6 @@ GameObject:
   - component: {fileID: 114807368314416944}
   - component: {fileID: 50739207101951726}
   - component: {fileID: 70030249890809790}
-  - component: {fileID: 70476043449670576}
-  - component: {fileID: 114216954780705458}
   m_Layer: 0
   m_Name: PlayerShot
   m_TagString: Untagged
@@ -109,32 +107,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.10029364, y: 0.13372421}
   m_Size: {x: 3.2413435, y: 6.215233}
   m_Direction: 0
---- !u!70 &70476043449670576
-CapsuleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1091661966480924}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.100292206, y: 0.1337204}
-  m_Size: {x: 3.6425095, y: 6.7501183}
-  m_Direction: 0
---- !u!114 &114216954780705458
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1091661966480924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed9ad433892e2a047bfe76d786040ea3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114807368314416944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   power: 0
+  startV: {x: 0, y: 0}
 --- !u!212 &212635178429964564
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -5,18 +5,21 @@ using UnityEngine;
 public class PlayerWave : MonoBehaviour {
     public float speed;
     public int power;
+    public Vector2 startV;
 
 	// Use this for initialization
 	void Start () {
-        power = 5;
+        power = 20;
         speed = 10;
         var rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
+        startV = transform.right;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	}
+        GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * speed;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -25,24 +28,35 @@ public class PlayerWave : MonoBehaviour {
             EnemyWave enemy = collision.gameObject.GetComponent<EnemyWave>();
             if (enemy.power > this.power)
             {
+                enemy.power = enemy.power - this.power;
                 Destroy(gameObject);
             }
             else if (enemy.power < this.power)
             {
+                this.power = this.power - enemy.power;
                 Destroy(collision.gameObject);
+                new WaitForSecondsRealtime(1);
+                GetComponent<Rigidbody2D>().velocity = startV * speed;
             }
-            else
+            else if (enemy.power == this.power)
             {
-                print("Enemy hit");
+                if (this.transform.position.x < 0)
+                {
+                    print("Enemy In player area, give energy to enemy");
+                }
+                else if (this.transform.position.x > 0)
+                {
+                    print("Player In enemy area, give energy to player");
+                }
+                Destroy(collision.gameObject);
+                Destroy(gameObject);
             }
-        }
-        else if (collision.gameObject.name == "PlayerShot")
-        {
-
         }
         else if (collision.gameObject.name == "right tower")
         {
-            print("tower hit");
+            EnemyTower tower = collision.gameObject.GetComponent<EnemyTower>();
+            tower.health = tower.health - this.power;
+            Destroy(gameObject);
         }
     }
 }

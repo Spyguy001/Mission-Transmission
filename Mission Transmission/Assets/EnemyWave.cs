@@ -21,6 +21,38 @@ public class EnemyWave : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        print("HA");
+        if (collision.gameObject.name == "PlayerShot")
+        {
+            PlayerWave player = collision.gameObject.GetComponent<PlayerWave>();
+            if (player.power > this.power)
+            {
+                player.power = player.power - this.power;
+                Destroy(gameObject);
+            }
+            else if (player.power < this.power)
+            {
+                this.power = this.power - player.power;
+                Destroy(collision.gameObject);
+            }
+            else if (player.power == this.power)
+            {
+                if (this.transform.position.x < 0)
+                {
+                    print("Enemy In player area, give energy to enemy");
+                }
+                else if (this.transform.position.x > 0)
+                {
+                    print("Player In enemy area, give energy to player");
+                }
+                Destroy(collision.gameObject);
+                Destroy(gameObject);
+            }
+        }
+        else if (collision.gameObject.name == "left tower")
+        {
+            PlayerTower tower = collision.gameObject.GetComponent<PlayerTower>();
+            tower.health = tower.health - this.power;
+            Destroy(gameObject);
+        }
     }
 }

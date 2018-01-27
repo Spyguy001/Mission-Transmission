@@ -27,15 +27,20 @@ public class WaveManager : MonoBehaviour {
             EnemyWave enemy = collision.gameObject.GetComponent<EnemyWave>();
             if (enemy.power > this.power)
             {
+                enemy.power = enemy.power - this.power;
                 Destroy(gameObject);
             }
             else if (enemy.power < this.power)
             {
+                this.power = this.power - enemy.power;
                 Destroy(collision.gameObject);
             }
-            else
+            else if (enemy.power == this.power)
             {
-                print("Enemy hit");
+                if (this.transform.position.x > 0)
+                {
+
+                }
             }
         }
         else if (collision.gameObject.name == "PlayerShot")
