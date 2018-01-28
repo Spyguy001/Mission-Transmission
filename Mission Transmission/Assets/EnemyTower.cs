@@ -8,20 +8,28 @@ public class EnemyTower : MonoBehaviour {
     public float energy;
     public int regenRate;
     public Slider HealthBar;
-    public int progress;
+    public Slider TransmissionBar;
     // Use this for initialization
     void Start()
     {
-        this.health = 5;
+        this.health = 25;
         this.regenRate = 1;
         this.energy = 0;
-        this.progress = 0;
+        this.TransmissionBar.value = 0;
         HealthBar.value = this.health;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.KeypadMinus))
+        {
+            if (energy > 0)
+            {
+                TransmissionBar.value += 1;
+                energy -= 1;
+            }
+        }
         this.energy += Time.deltaTime * this.regenRate;
         HealthBar.value = this.health;
         if (this.health <= 0)
@@ -29,7 +37,7 @@ public class EnemyTower : MonoBehaviour {
             Destroy(gameObject);
             GameManScript.instance.Win();
         }
-        if (this.progress >= 100)
+        if (this.TransmissionBar.value >= 50)
         {
             Destroy(GameObject.Find("left tower"));
         }
