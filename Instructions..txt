@@ -1,0 +1,14 @@
+Instructions:
+
+Left is player 1, right is player 2.
+Plyare 1 controls:
+Keys 1 to 5 to choose power, press space to shoot a wave, and W and S to move the shooter up and down (the black rectangle). Press Q to transmit.
+Player 2 controls:
+Numpad keys 1 to 5 to choose power, press left arrow to shoot a wave, up and down arrows to move the shooter up and down. Press right arrow to transmit.
+
+The objective is to either transmit 50 times or shoot the other team's tower down. Each tower has 25 health. The power of the wave knocks
+down the health of the other tower if it hits it. If a wave hits another wave:
+  The wave with the larger power continues on with a power of the difference in original powers.
+  The two waves destory each other if they're equal in power, and the team opposite to the team whose quadrant the waves collided gets energy.
+Each team gets one energy per second, with 1 power in a wave taking 1 energy. Each transmission is 1 energy. Whichever side completes
+their transmissions or takes down the enemy health first wins.
