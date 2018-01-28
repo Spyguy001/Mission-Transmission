@@ -12,7 +12,7 @@ public class EnemyTower : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        this.health = 100;
+        this.health = 5;
         this.regenRate = 1;
         this.energy = 0;
         this.progress = 0;
@@ -27,6 +27,7 @@ public class EnemyTower : MonoBehaviour {
         if (this.health <= 0)
         {
             Destroy(gameObject);
+            GameManScript.instance.Win();
         }
         if (this.progress >= 100)
         {

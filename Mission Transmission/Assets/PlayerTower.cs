@@ -29,6 +29,7 @@ public class PlayerTower : MonoBehaviour {
         if (this.health <= 0)
         {
             Destroy(gameObject);
+            GameManScript.instance.Win();
         }
         if (this.progress >= 100)
         {
