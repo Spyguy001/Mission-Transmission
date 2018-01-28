@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerTower : MonoBehaviour {
     public int health;
-
+    public Slider HealthBar;
 	// Use this for initialization
 	void Start () {
         this.health = 100;
@@ -17,4 +18,6 @@ public class PlayerTower : MonoBehaviour {
             Destroy(gameObject);
         }
 	}
+
+    float CalculateHealth()
 }

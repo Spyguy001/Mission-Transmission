@@ -9,7 +9,7 @@ public class EnemyWave : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        power = 3;
+        power = 41;
         speed = 10;
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
