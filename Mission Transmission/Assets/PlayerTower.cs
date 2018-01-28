@@ -24,6 +24,7 @@ public class PlayerTower : MonoBehaviour {
     {
         this.energy += Time.deltaTime * this.regenRate;
         HealthBar.value = this.health;
+        
 
         if (Input.GetKeyDown(KeyCode.Q))
         {

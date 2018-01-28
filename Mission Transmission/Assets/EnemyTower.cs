@@ -22,7 +22,7 @@ public class EnemyTower : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadMinus))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (energy > 0)
             {

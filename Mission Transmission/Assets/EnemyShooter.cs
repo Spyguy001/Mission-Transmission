@@ -25,7 +25,7 @@ public class EnemyShooter : MonoBehaviour {
         else
             r2d.velocity = new Vector3(0, 0, 0);
 
-        if (Input.GetKeyDown(KeyCode.KeypadMultiply))
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (GameObject.Find("right tower").GetComponent<EnemyTower>().Fire(GameObject.Find("enemy chosen power").GetComponent<EnemyChosenPowerLVL>().energy))
             {

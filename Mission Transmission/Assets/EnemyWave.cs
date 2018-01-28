@@ -13,7 +13,7 @@ public class EnemyWave : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        power = GameObject.Find("eShooter").GetComponent<EnemyShooter>().ChosenPower ;
+        power = GameObject.Find("enemy chosen power").GetComponent<EnemyChosenPowerLVL>().energy;
         speed = 10;
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
@@ -24,7 +24,7 @@ public class EnemyWave : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        rb.freezeRotation = true;
+        GetComponent<Rigidbody2D>().freezeRotation = true;
         GetComponent<Rigidbody2D>().velocity = startV * speed;
     }
 
@@ -41,6 +41,7 @@ public class EnemyWave : MonoBehaviour {
         {
             PlayerTower tower = collision.gameObject.GetComponent<PlayerTower>();
             tower.health = tower.health - this.power;
+            
             Destroy(gameObject);
         }
     }
