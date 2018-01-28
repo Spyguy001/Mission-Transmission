@@ -7,49 +7,35 @@ public class EnemyWave : MonoBehaviour {
     public float speed;
     public int power;
     Rigidbody2D rb;
+    public Vector2 startV;
+    //public float startZ;
 
     // Use this for initialization
     void Start()
     {
-        power = 41;
+        power = 191;
         speed = 10;
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
+        startV = transform.right;
+        //startZ = transform.rotation.z;
     }
 
     // Update is called once per frame
     void Update()
     {
+        rb.freezeRotation = true;
+        GetComponent<Rigidbody2D>().velocity = startV * speed;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "PlayerShot")
         {
-            PlayerWave player = collision.gameObject.GetComponent<PlayerWave>();
-            if (player.power > this.power)
-            {
-                player.power = player.power - this.power;
-                Destroy(gameObject);
-            }
-            else if (player.power < this.power)
-            {
-                this.power = this.power - player.power;
-                Destroy(collision.gameObject);
-            }
-            else if (player.power == this.power)
-            {
-                if (this.transform.position.x < 0)
-                {
-                    print("Enemy In player area, give energy to enemy");
-                }
-                else if (this.transform.position.x > 0)
-                {
-                    print("Player In enemy area, give energy to player");
-                }
-                Destroy(collision.gameObject);
-                Destroy(gameObject);
-            }
+            rb.freezeRotation = false;
+            transform.right = startV;
+            rb.freezeRotation = true;
+            //transform.Rotate(Vector3.right, startZ - transform.rotation.z);
         }
         else if (collision.gameObject.name == "left tower")
         {

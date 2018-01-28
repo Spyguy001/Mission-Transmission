@@ -21,7 +21,8 @@ public class PlayerWave : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * speed;
+        GetComponent<Rigidbody2D>().freezeRotation = true;
+        GetComponent<Rigidbody2D>().velocity = startV * speed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4941596556788502}
   - component: {fileID: 212387889077419986}
   - component: {fileID: 60112842928227250}
-  - component: {fileID: 114210677407956122}
   - component: {fileID: 114956771362080788}
   - component: {fileID: 50487448944609964}
   m_Layer: 0
@@ -246,18 +245,6 @@ PolygonCollider2D:
       - {x: -0.14, y: 0.38}
       - {x: -0.14, y: 0.35}
       - {x: -0.13, y: 0.35}
---- !u!114 &114210677407956122
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1331463775722760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c114c5630d6e5c140bf047b71ce5bd51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shot: {fileID: 0}
 --- !u!114 &114956771362080788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,7 +256,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80412dbc71ed8684f8c262d1fc93d9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 100
+  energy: 0
+  regenRate: 0
+  HealthBar: {fileID: 0}
+  progress: 0
 --- !u!212 &212387889077419986
 SpriteRenderer:
   m_ObjectHideFlags: 1
