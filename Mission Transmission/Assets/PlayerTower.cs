@@ -36,12 +36,13 @@ public class PlayerTower : MonoBehaviour {
         }
         if (this.health <= 0)
         {
+            GameManScript.instance.RightWin();
             Destroy(gameObject);
-            GameManScript.instance.LeftWin();
         }
         if (this.TransmissionBar.value >= 50)
         {
             Destroy(GameObject.Find("right tower"));
+            GameManScript.instance.LeftWin();
         }
     }
 

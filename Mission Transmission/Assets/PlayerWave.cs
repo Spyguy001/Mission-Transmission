@@ -12,6 +12,7 @@ public class PlayerWave : MonoBehaviour {
     void Start()
     {
         power = GameObject.Find("chosen power").GetComponent<ChosenPowerLVL>().energy ;
+        transform.localScale = new Vector3(0.2f + power * 0.3f, 0.2f + power * 0.3f);
         speed = 10;
         var rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
@@ -54,11 +55,11 @@ public class PlayerWave : MonoBehaviour {
             {
                 if (this.transform.position.x < 0)
                 {
-                    print("Enemy In player area, give energy to enemy");
+                    GameObject.Find("right tower").GetComponent<EnemyTower>().energy++;
                 }
                 else if (this.transform.position.x > 0)
                 {
-                    print("Player In enemy area, give energy to player");
+                    GameObject.Find("left tower").GetComponent<PlayerTower>().energy++;
                 }
                 Destroy(collision.gameObject);
                 Destroy(gameObject);

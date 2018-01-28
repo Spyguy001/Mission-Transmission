@@ -14,6 +14,7 @@ public class EnemyWave : MonoBehaviour {
     void Start()
     {
         power = GameObject.Find("enemy chosen power").GetComponent<EnemyChosenPowerLVL>().energy;
+        transform.localScale = new Vector3(0.2f + power * 0.3f, 0.2f + power * 0.3f);
         speed = 10;
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
