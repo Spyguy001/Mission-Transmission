@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ShooterScript : MonoBehaviour {
     public GameObject MyShot;
-    public Slider EnergyBar;
-    public Slider ChosenPower;
     // Use this for initialization
     void Start () {
 		

@@ -15,14 +15,19 @@ public class EnemyShooter : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        timeUntilShot += Time.deltaTime;
-        // Get the rigidbody component
-        //Rigidbody2D r2d = GetComponent<Rigidbody2D>();
-        float positon = Random.Range(-10.46f, 6.24f);
-        transform.position = new Vector3(23.9f, positon);
-        if(timeUntilShot >= 5) {
-            ChosenPower = (int)Random.Range(1.0f, 5.0f);
-            if (GameObject.Find("right tower").GetComponent<EnemyTower>().Fire(ChosenPower) == true)
+        Rigidbody2D r2d = GetComponent<Rigidbody2D>();
+
+        // Move the square when an arrow key is pressed
+        if (Input.GetKey(KeyCode.UpArrow))
+            r2d.velocity = new Vector3(0, 10, 0);
+        else if (Input.GetKey(KeyCode.DownArrow))
+            r2d.velocity = new Vector3(0, -10, 0);
+        else
+            r2d.velocity = new Vector3(0, 0, 0);
+
+        if (Input.GetKeyDown(KeyCode.KeypadMultiply))
+        {
+            if (GameObject.Find("right tower").GetComponent<EnemyTower>().Fire(GameObject.Find("enemy chosen power").GetComponent<EnemyChosenPowerLVL>().energy))
             {
                 Instantiate(myShot, transform.position, Quaternion.Euler(0, 0, 180));
             }

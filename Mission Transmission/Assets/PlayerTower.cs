@@ -9,15 +9,12 @@ public class PlayerTower : MonoBehaviour {
     public int regenRate;
     public Slider HealthBar;
     public Slider TransmissionBar;
-
-    public int progress;
     // Use this for initialization
     void Start()
     {
-        this.health = 100;
+        this.health = 25;
         this.regenRate = 1;
         this.energy = 0;
-        this.progress = 0;
         HealthBar.value = this.health;
         TransmissionBar.value = 0;
     }
@@ -41,7 +38,7 @@ public class PlayerTower : MonoBehaviour {
             Destroy(gameObject);
             GameManScript.instance.Win();
         }
-        if (this.progress >= 100)
+        if (this.TransmissionBar.value >= 50)
         {
             Destroy(GameObject.Find("right tower"));
         }
