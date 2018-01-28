@@ -35,8 +35,7 @@ public class PlayerWave : MonoBehaviour {
             {
                 this.power = this.power - enemy.power;
                 Destroy(collision.gameObject);
-                new WaitForSecondsRealtime(1);
-                GetComponent<Rigidbody2D>().velocity = startV * speed;
+                transform.right = startV;
             }
             else if (enemy.power == this.power)
             {
