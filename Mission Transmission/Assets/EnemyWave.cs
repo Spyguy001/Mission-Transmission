@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyWave : MonoBehaviour {
 
     public float speed;
-    public int power;
+    public int power = 20;
     Rigidbody2D rb;
     public Vector2 startV;
     //public float startZ;
@@ -13,7 +13,6 @@ public class EnemyWave : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        power = 191;
         speed = 10;
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;

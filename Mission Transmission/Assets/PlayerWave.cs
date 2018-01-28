@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerWave : MonoBehaviour {
 
     public float speed;
-    public int power;
+    public int power = 1;
     public Vector2 startV;
 
     // Use this for initialization
     void Start()
     {
-        power = 20;
+        power = GameObject.Find("chosen power").GetComponent<ChosenPowerLVL>().energy ;
         speed = 10;
         var rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;

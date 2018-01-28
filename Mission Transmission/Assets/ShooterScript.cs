@@ -16,7 +16,7 @@ public class ShooterScript : MonoBehaviour {
         // Get the rigidbody component
         Rigidbody2D r2d = GetComponent<Rigidbody2D>();
 
-        // Move the spaceship when an arrow key is pressed
+        // Move the square when an arrow key is pressed
         if (Input.GetKey(KeyCode.W))
             r2d.velocity = new Vector3(0, 10, 0);
         else if (Input.GetKey(KeyCode.S))
@@ -26,7 +26,10 @@ public class ShooterScript : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if(GameObject.Find("left tower").GetComponent<PlayerTower>().Fire(GameObject.Find("chosen power").GetComponent<ChosenPowerLVL>().energy))
+            {
             Instantiate(MyShot, transform.position, Quaternion.identity);
+            }
         }
  
 

@@ -34,7 +34,7 @@ public class PlayerTower : MonoBehaviour {
         }
     }
 
-    bool Fire(int power)
+    public bool Fire(int power)
     {
         if (this.energy >= power)
         {
