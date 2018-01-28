@@ -8,8 +8,8 @@ public class PlayerTower : MonoBehaviour {
     public float energy;
     public int regenRate;
     public Slider HealthBar;
-    public Slider EnergyBar;
-    public Slider ChosenPower;
+    public Slider TransmissionBar;
+
     public int progress;
     // Use this for initialization
     void Start()
@@ -19,6 +19,7 @@ public class PlayerTower : MonoBehaviour {
         this.energy = 0;
         this.progress = 0;
         HealthBar.value = this.health;
+        TransmissionBar.value = 0;
     }
 
     // Update is called once per frame
@@ -26,6 +27,15 @@ public class PlayerTower : MonoBehaviour {
     {
         this.energy += Time.deltaTime * this.regenRate;
         HealthBar.value = this.health;
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (energy > 0)
+            {
+                TransmissionBar.value += 1;
+                energy -= 1;
+            }
+        }
         if (this.health <= 0)
         {
             Destroy(gameObject);
