@@ -35,7 +35,7 @@ public class EnemyTower : MonoBehaviour {
         if (this.health <= 0)
         {
             Destroy(gameObject);
-            GameManScript.instance.Win();
+            GameManScript.instance.RightWin();
         }
         if (this.TransmissionBar.value >= 50)
         {

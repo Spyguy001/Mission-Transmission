@@ -20,8 +20,13 @@ public class GameManScript : MonoBehaviour {
         }
 
     }
-    public void Win()
+    public void LeftWin()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void RightWin()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 }

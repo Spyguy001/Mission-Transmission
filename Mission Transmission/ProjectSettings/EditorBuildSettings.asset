@@ -11,3 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Main.unity
     guid: 0a5ed92a470ca4d4f92058952a34408e
+  - enabled: 1
+    path: Assets/LeftWin.unity
+    guid: 64a478c82587d4542ab975baf00ebbfd
+  - enabled: 1
+    path: Assets/RightWin.unity
+    guid: 1c514b30f5fe9644a8b97a79f32067f4
