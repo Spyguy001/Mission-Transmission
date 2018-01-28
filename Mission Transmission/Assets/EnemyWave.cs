@@ -13,6 +13,7 @@ public class EnemyWave : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        power = GameObject.Find("eShooter").GetComponent<EnemyShooter>().ChosenPower ;
         speed = 10;
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;

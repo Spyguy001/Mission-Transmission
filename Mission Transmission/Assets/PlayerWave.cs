@@ -25,15 +25,24 @@ public class PlayerWave : MonoBehaviour {
         GetComponent<Rigidbody2D>().velocity = startV * speed;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "EnemyShot")
+        
+
+        if (collision.gameObject.name == "right tower")
         {
+            EnemyTower tower = collision.gameObject.GetComponent<EnemyTower>();
+            tower.health = tower.health - this.power;
+            Destroy(gameObject);
+        }
+        else //if (collision.gameObject.name == "EnemyShot(Clone)")
+        {
+            
             EnemyWave enemy = collision.gameObject.GetComponent<EnemyWave>();
             if (enemy.power > this.power)
             {
                 enemy.power = enemy.power - this.power;
-                Destroy(gameObject);
+                Destroy(this.gameObject);
             }
             else if (enemy.power < this.power)
             {
@@ -55,11 +64,6 @@ public class PlayerWave : MonoBehaviour {
                 Destroy(gameObject);
             }
         }
-        else if (collision.gameObject.name == "right tower")
-        {
-            EnemyTower tower = collision.gameObject.GetComponent<EnemyTower>();
-            tower.health = tower.health - this.power;
-            Destroy(gameObject);
-        }
+        
     }
 }

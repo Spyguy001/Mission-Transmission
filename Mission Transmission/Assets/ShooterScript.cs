@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShooterScript : MonoBehaviour {
     public GameObject MyShot;
-	// Use this for initialization
-	void Start () {
+    public Slider EnergyBar;
+    public Slider ChosenPower;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -26,8 +29,12 @@ public class ShooterScript : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(GameObject.Find("left tower").GetComponent<PlayerTower>().Fire(GameObject.Find("chosen power").GetComponent<ChosenPowerLVL>().energy))
+
+            
+
+            if (GameObject.Find("left tower").GetComponent<PlayerTower>().Fire(GameObject.Find("chosen power").GetComponent<ChosenPowerLVL>().energy))
             {
+                
             Instantiate(MyShot, transform.position, Quaternion.identity);
             }
         }

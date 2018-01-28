@@ -8,6 +8,8 @@ public class PlayerTower : MonoBehaviour {
     public float energy;
     public int regenRate;
     public Slider HealthBar;
+    public Slider EnergyBar;
+    public Slider ChosenPower;
     public int progress;
     // Use this for initialization
     void Start()
@@ -39,6 +41,7 @@ public class PlayerTower : MonoBehaviour {
         if (this.energy >= power)
         {
             this.energy -= power;
+
             return true;
         }
         return false;

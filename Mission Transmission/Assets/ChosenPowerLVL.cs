@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ChosenPowerLVL : MonoBehaviour {
     public UnityEngine.UI.Text t;
     public int energy = 1;
+    
 
     void Start()
     {
@@ -15,6 +17,7 @@ public class ChosenPowerLVL : MonoBehaviour {
 
     void Update()
     {
+        
         foreach (char c in Input.inputString)
         {
             int val = (int)System.Char.GetNumericValue(c);
