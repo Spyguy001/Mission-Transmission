@@ -17,14 +17,26 @@ public class ChosenPowerLVL : MonoBehaviour {
 
     void Update()
     {
-        
-        foreach (char c in Input.inputString)
+
+        if (Input.GetKey(KeyCode.Alpha1))
         {
-            int val = (int)System.Char.GetNumericValue(c);
-            if(1 <= val && val <= 5)
-            {
-                energy = val;
-            }
+            energy = 1;
+        }
+        else if (Input.GetKey(KeyCode.Alpha2))
+        {
+            energy = 2;
+        }
+        else if (Input.GetKey(KeyCode.Alpha3))
+        {
+            energy = 3;
+        }
+        else if (Input.GetKey(KeyCode.Alpha4))
+        {
+            energy = 4;
+        }
+        else if (Input.GetKey(KeyCode.Alpha5))
+        {
+            energy = 5;
         }
         t.text = "Chosen Power: " + energy.ToString();
     }
