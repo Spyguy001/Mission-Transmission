@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerWave : MonoBehaviour {
+
     public float speed;
     public int power;
     public Vector2 startV;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         power = 20;
         speed = 10;
         var rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
         startV = transform.right;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * speed;
     }
 
