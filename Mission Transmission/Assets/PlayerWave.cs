@@ -43,11 +43,13 @@ public class PlayerWave : MonoBehaviour {
             if (enemy.power > this.power)
             {
                 enemy.power = enemy.power - this.power;
+                collision.gameObject.GetComponent<Transform>().transform.localScale = new Vector3(0.2f + power * 0.3f, 0.2f + power * 0.3f);
                 Destroy(this.gameObject);
             }
             else if (enemy.power < this.power)
             {
                 this.power = this.power - enemy.power;
+                transform.localScale = new Vector3(0.2f + power * 0.3f, 0.2f + power * 0.3f);
                 Destroy(collision.gameObject);
                 transform.right = startV;
             }
